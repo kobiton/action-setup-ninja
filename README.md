@@ -1,4 +1,4 @@
-![Main Workflow](https://github.com/kobiton/setup-ninja/workflows/Main%20Workflow/badge.svg)
+![Main Workflow](https://github.com/kobiton/action-setup-ninja/workflows/Main%20Workflow/badge.svg)
 
 # setup-ninja
 
@@ -21,7 +21,7 @@ jobs:
         
     steps:
       - name: Setup Ninja
-        uses: kobiton/setup-ninja@master
+        uses: kobiton/action-setup-ninja@master
         with:
           # ninja version to download. Default: 1.10.0
           version: 1.11.0
@@ -29,7 +29,7 @@ jobs:
 ```
 
 ### Action Reference: All Input/Output & Defaults
-[action.yml](https://github.com/kobiton/setup-ninja/blob/master/action.yml) 
+[action.yml](https://github.com/kobiton/action-setup-ninja/blob/master/action.yml) 
 
 ## License
 All the content in this repository is licensed under the MIT License.
