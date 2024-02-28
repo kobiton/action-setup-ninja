@@ -1,4 +1,4 @@
-![Main Workflow](https://github.com/ashutoshvarma/setup-ninja/workflows/Main%20Workflow/badge.svg)
+![Main Workflow](https://github.com/kobiton/setup-ninja/workflows/Main%20Workflow/badge.svg)
 
 # setup-ninja
 
@@ -21,26 +21,18 @@ jobs:
         
     steps:
       - name: Setup Ninja
-        uses: ashutoshvarma/setup-ninja@master
+        uses: kobiton/setup-ninja@master
         with:
           # ninja version to download. Default: 1.10.0
-          version: 1.10.0
-
-      - name: Build with CMake
-        uses: ashutoshvarma/action-cmake-build@master
-        with:
-          build-dir: ${{ runner.workspace }}/build
-          cc: ${{ matrix.config.cc }}
-          cxx: ${{ matrix.config.cxx }}
-          configure-options: -G Ninja
-          build-type: Release
+          version: 1.11.0
         
 ```
 
 ### Action Reference: All Input/Output & Defaults
-[action.yml](https://github.com/ashutoshvarma/setup-ninja/blob/master/action.yml) 
+[action.yml](https://github.com/kobiton/setup-ninja/blob/master/action.yml) 
 
 ## License
 All the content in this repository is licensed under the MIT License.
 
+Copyright (c) 2024 Kobiton Inc.
 Copyright (c) 2019-2020 Ashutosh Varma
