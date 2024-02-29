@@ -1,6 +1,7 @@
 /*
  * MIT License
  *
+ * Copyright (c) 2024 Kobiton Inc.
  * Copyright (c) 2020 Ashutosh Varma
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -21,28 +22,22 @@
  * THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 /* eslint-disable no-console */
-import request from 'request'
+import fetch from 'node-fetch'
 
 export const IS_WIN: boolean = process.platform === 'win32'
 export const IS_LINUX: boolean = process.platform === 'linux'
 export const IS_MAC: boolean = process.platform === 'darwin'
 
-export async function downloadAsBuffer(url: string): Promise<Buffer> {
-  return new Promise<Buffer>((resolve, reject) => {
-    console.log(`Downloading file ${url}`)
-    request.get({url, encoding: null}, (err, res, body) => {
-      if (err) {
-        reject(err)
-      }
-      console.log(`Recieved ${res.statusCode}`)
-      if (res.statusCode >= 400) {
-        reject(Error(`Recieved ${res.statusCode} from ${url}`))
-      } else {
-        console.log(`Download Complete.`)
-        resolve(body)
-      }
-    })
-  })
+export async function downloadAsBuffer(url: string): Promise<ArrayBuffer> {
+  console.log(`Downloading file ${url}`)
+  const response = await fetch(url)
+  if (response.ok) {
+    return response.arrayBuffer()
+  } else {
+    throw new Error(
+      `Error: Response with status ${status} received for url: ${url}`
+    )
+  }
 }
 
 export function getPlatform(platform: string): string {

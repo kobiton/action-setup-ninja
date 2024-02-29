@@ -1,6 +1,7 @@
 /*
  * MIT License
  *
+ * Copyright (c) 2024 Kobiton Inc.
  * Copyright (c) 2020 Ashutosh Varma
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -67,7 +68,7 @@ async function run(): Promise<void> {
 
     core.info(`Successfully added ninja-${ninjaVersion} to PATH`)
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed((error as Error).message)
   }
 }
 run()
