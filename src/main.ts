@@ -27,6 +27,7 @@ import * as util from './util'
 import fs from 'fs'
 import JSZip, {JSZipObject} from 'jszip'
 import path from 'path'
+import process from 'process'
 
 async function run(): Promise<void> {
   try {
@@ -45,7 +46,7 @@ async function run(): Promise<void> {
     // create folders
     await io.mkdirP(ninjaDest)
 
-    const ninjaFilepath = path.join(ninjaDest, ninjaBinaryName)
+    const ninjaFilepath = path.join(process.cwd(), ninjaDest, ninjaBinaryName)
 
     const buff = await util.downloadAsBuffer(ninjaDwdUrl)
 

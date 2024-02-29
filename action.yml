@@ -2,7 +2,7 @@ name: 'Setup Ninja'
 description: 'Setup specific version of Ninja build tool and add it to PATH'
 author: 'Ashutosh Varma & Colin Rymer'
 inputs:
-  version:              
+  version:
     description: 'Ninja version. Make sure given ninja version exists in ninja github release'
     default: '1.11.1'
     required: true
@@ -10,7 +10,7 @@ inputs:
     description: 'Folder where ninja binary will be downloaded'
     default: 'ninja_bin'
     required: false
-  platform: 
+  platform:
     description: Override default platform detection logic. Accepted values are [mac, linux, win]
     required: false
 runs:
@@ -18,5 +18,5 @@ runs:
   main: 'dist/index.js'
 
 branding:
-  icon: 'download'  
+  icon: 'download'
   color: 'orange'
